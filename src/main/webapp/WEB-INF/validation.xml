@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE form-validation PUBLIC
+        "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+        "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+    <global>
+        <constant>
+            <constant-name>phone</constant-name>
+            <constant-value>^\(?(\d{3})\)?[-| ]?(\d{3})[-| ]?(\d{4})$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>zip</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>currency</constant-name>
+            <constant-value>^\d{1,3}(,?\d{1,3})*\.?(\d{1,2})?$</constant-value>
+        </constant>
+    </global>
+    <formset>
+        <form name="fileUpload">
+            <field property="name" depends="required">
+                <arg key="uploadForm.name"/>
+            </field>
+            <!-- Client-side Javascript won't catch this in IE, but server-side will -->
+            <field property="file" depends="required">
+                <arg key="uploadForm.file"/>
+            </field>
+        </form>
+        <form name="user">
+            <field property="username" depends="required">
+                <arg key="user.username"/>
+            </field>
+            <field property="firstName" depends="required">
+                <arg key="user.firstName"/>
+            </field>
+            <field property="lastName" depends="required">
+                <arg key="user.lastName"/>
+            </field>
+            <field property="email" depends="required,email">
+                <arg key="user.email"/>
+            </field>
+            <field property="passwordHint" depends="required">
+                <arg key="user.passwordHint"/>
+            </field>
+        </form>
+        <form name="signup" extends="user">
+            <field property="password" depends="required">
+                <arg key="user.password"/>
+            </field>
+        </form>
+        <!--Application-START-->
+        <form name="application">
+            <field property="address" depends="required">
+                <arg key="application.address"/>
+            </field>
+            <field property="annualIncome" depends="required">
+                <arg key="application.annualIncome"/>
+            </field>
+            <field property="applNo" depends="required">
+                <arg key="application.applNo"/>
+            </field>
+            <field property="birthday" depends="required">
+                <arg key="application.birthday"/>
+            </field>
+            <field property="companyAddress" depends="required">
+                <arg key="application.companyAddress"/>
+            </field>
+            <field property="companyNature" depends="required">
+                <arg key="application.companyNature"/>
+            </field>
+            <field property="companyType" depends="required">
+                <arg key="application.companyNature"/>
+            </field>
+            <field property="companyYears" depends="required">
+                <arg key="application.companyYears"/>
+            </field>
+            <field property="downPaymentAmount" depends="required">
+                <arg key="application.downPaymentAmount"/>
+            </field>
+            <field property="downPaymentRate" depends="required">
+                <arg key="application.downPaymentRate"/>
+            </field>
+            <field property="gender" depends="required">
+                <arg key="application.gender"/>
+            </field>
+            <field property="idNo" depends="required">
+                <arg key="application.idNo"/>
+            </field>
+            <field property="idType" depends="required">
+                <arg key="application.idType"/>
+            </field>
+            <field property="loanType" depends="required">
+                <arg key="application.loanType"/>
+            </field>
+            <field property="loanYears" depends="required">
+                <arg key="application.loanYears"/>
+            </field>
+            <field property="mailType" depends="required">
+                <arg key="application.mailType"/>
+            </field>
+            <field property="manufacturerPrice" depends="required">
+                <arg key="application.manufacturerPrice"/>
+            </field>
+            <field property="maritalStatus" depends="required">
+                <arg key="application.maritalStatus"/>
+            </field>
+            <field property="mobileNo" depends="required">
+                <arg key="application.mobileNo"/>
+            </field>
+            <field property="name" depends="required">
+                <arg key="application.name"/>
+            </field>
+            <field property="price" depends="required">
+                <arg key="application.price"/>
+            </field>
+            <field property="propertyType" depends="required">
+                <arg key="application.propertyType"/>
+            </field>
+            <field property="vehicleModel" depends="required">
+                <arg key="application.vehicleModel"/>
+            </field>
+            <field property="workCompany" depends="required">
+                <arg key="application.workCompany"/>
+            </field>
+            <field property="workPosition" depends="required">
+                <arg key="application.workPosition"/>
+            </field>
+            <field property="email" depends="email">
+                <arg key="application.email"/>
+            </field>
+            <field property="coEmail" depends="email">
+                <arg key="application.coEmail"/>
+            </field>
+            <field property="dbEmail" depends="email">
+                <arg key="application.dbEmail"/>
+            </field>
+        </form>
+        <!--Application-END-->
+    </formset>
+</form-validation>
